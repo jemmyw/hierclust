@@ -27,9 +27,9 @@ module Hierclust
     def clusters
       return @data if @separation && @distances.separation > @separation
       while @data.length > 1
-        @distances = Distances.new(@data)
         return @data if @separation && @distances.separation > @separation
         @data = find_cluster
+        @distances = Distances.new(@data)
       end
       @data
     end
